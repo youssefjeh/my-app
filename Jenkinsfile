@@ -71,7 +71,7 @@ pipeline {
     }
   }
 } */
-@Library('jenkins-SL')
+@Library('jenkins-SL') _
 def gv
 pipeline {
   agent any
