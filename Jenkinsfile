@@ -27,15 +27,6 @@ pipeline {
         }
       }
     }
-
-    stage("build docker image") {
-      
-      steps {
-        script{
-            gv.buildImg()
-        }
-      }
-    }
     
     stage("test") {
       
