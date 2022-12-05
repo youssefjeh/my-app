@@ -1,14 +1,13 @@
-@Library('jenkins-SL') 
 def gv
 pipeline {
   agent any
   tools {
     maven 'Maven'
   }
- /* parameters {
+  parameters {
     choice(name: 'VERSION' , choices: ['1.1.0', '1.2.0' , '1.3.0'], description: '')
     booleanParam(name: 'executeTests' , defaultValue: true, description: '')
-  } */
+  } 
   
   stages {
 
@@ -24,8 +23,7 @@ pipeline {
       
       steps {
         script{
-            //gv.buildJar()
-            buildJar()
+            gv.buildJar()
         }
       }
     }
@@ -34,13 +32,12 @@ pipeline {
       
       steps {
         script{
-          //  gv.buildImg()
-          buildImg()
+            gv.buildImg()
         }
       }
     }
     
-    /*stage("test") {
+    stage("test") {
       
       when {
         expression {
@@ -53,7 +50,7 @@ pipeline {
             gv.testApp()
         }
       }
-    }*/
+    }
     
     stage("deploy") {
        /* input {
@@ -66,9 +63,9 @@ pipeline {
       
       steps {
         script{
-            // env.ENV = input message: "Select env to deploy to", ok "Done", parameters: [choice(name: 'ENV' , choices: ['dev', 'staging' , 'prod'], description: '')]
+            env.ENV = input message: "Select env to deploy to", ok "Done", parameters: [choice(name: 'ENV' , choices: ['dev', 'staging' , 'prod'], description: '')]
             gv.deployApp()
-           // echo "deploying to ${ENV}"
+            echo "deploying to ${ENV}"
         }
       }
     }
