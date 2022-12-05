@@ -26,7 +26,6 @@ pipeline {
         script{
             //gv.buildJar()
             buildJar()
-          
         }
       }
     }
