@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 echo 'Testing webhook and Jenkins...'
-                echo 'webhook multib'
+                echo '????'
             }
         }
         stage('Deploy') {
