@@ -71,8 +71,6 @@ pipeline {
     }
   }
 } */
-#!/usr/bin/env groovy
-
 @Library('jenkins-SL')
 def gv
 pipeline {
