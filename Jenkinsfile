@@ -20,6 +20,14 @@ pipeline {
         }
     }
     
+    stage("Increment Version") {
+       steps {
+          script{
+            IncrementVersion()
+          }
+        }
+    }
+    
     stage("build Jar") {
       
       steps {
@@ -35,7 +43,7 @@ pipeline {
       steps {
         script{
           //  gv.buildImg()
-          buildImg()
+          buildImgVer()
         }
       }
     }
