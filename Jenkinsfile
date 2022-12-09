@@ -80,6 +80,14 @@ pipeline {
         }
       }
     }
+    
+    stage("Commit Version Update"){
+      steps{
+        script{
+          CommitVersionUp()
+        }
+      }
+    }
   }
 }
 
